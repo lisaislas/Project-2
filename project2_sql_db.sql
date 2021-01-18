@@ -1,11 +1,5 @@
-﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- Link to schema: https://app.quickdatabasediagrams.com/#/d/Ue4cxH
--- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
-
--- Physical
-
 CREATE TABLE "data_table" (
-    "id" serial   NOT NULL,
+    "id" VARCHAR(30)   NOT NULL,
     "valence" FLOAT   NOT NULL,
     "year" INT   NOT NULL,
     "acousticness" FLOAT   NOT NULL,
@@ -62,4 +56,11 @@ CREATE TABLE "genre_table" (
     "popularity" FLOAT   NOT NULL,
     "key" INT   NOT NULL
 );
+
+SELECT * FROM data_table;
+
+SELECT * FROM year_table;
+
+SELECT * FROM genre_table;
+
 
