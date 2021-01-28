@@ -1,0 +1,27 @@
+body {
+    background: #212121;
+}
+
+.navbar {
+    background: #1db954;
+    padding-top: 30px;
+    padding-bottom: 30px;;
+}
+
+.navbar-brand {
+    color: #121212;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+#row1 {
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+
+#row2 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
