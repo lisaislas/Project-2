@@ -1,27 +1,3 @@
-CREATE TABLE "data_table" (
-    "id" VARCHAR(30)   NOT NULL,
-    "valence" FLOAT   NOT NULL,
-    "year" INT   NOT NULL,
-    "acousticness" FLOAT   NOT NULL,
-    "artists" VARCHAR(100)   NOT NULL,
-    "danceability" FLOAT   NOT NULL,
-    "duration_ms" INT   NOT NULL,
-    "energy" FLOAT   NOT NULL,
-    "explicit" INT   NOT NULL,
-    "instrumentalness" VARCHAR(30)   NOT NULL,
-    "key" INT   NOT NULL,
-    "liveness" FLOAT   NOT NULL,
-    "loudness" FLOAT   NOT NULL,
-    "mode" INT   NOT NULL,
-    "name" VARCHAR(100)   NOT NULL,
-    "popularity" INT   NOT NULL,
-    "release_date" VARCHAR(20)   NOT NULL,
-    "speechiness" FLOAT   NOT NULL,
-    "tempo" FLOAT   NOT NULL,
-    CONSTRAINT "pk_data_table" PRIMARY KEY (
-        "id"
-     )
-);
 
 CREATE TABLE "year_table" (
     "mode" INT   NOT NULL,
