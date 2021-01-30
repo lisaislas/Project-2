@@ -10,10 +10,15 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
+@app.route("/main", methods=['GET', 'POST'])
+@cross_origin()
+def home():
+   return render_template('index.html')
+
 @app.route("/danceability_by_year", methods=['GET', 'POST'])
 @cross_origin()
 def top_years():
-    con = psycopg2.connect("host='localhost' dbname='project2' user='postgres' password='postgres'")
+    con = psycopg2.connect("postgresql://postgres:postgres@localhost:5433/project02")
     cur = con.cursor()
     cur.execute("""select year, sum(danceability) as total_danceability from data_table group by year""")
 
@@ -25,7 +30,7 @@ def top_years():
 @app.route("/most_danceable_genres", methods=['GET', 'POST'])
 @cross_origin()
 def top_genres():
-    con = psycopg2.connect("host='localhost' dbname='project2' user='postgres' password='postgres'")
+    con = psycopg2.connect("postgresql://postgres:postgres@localhost:5433/project02")
     cur = con.cursor()
     cur.execute("""select genres, sum(danceability) as total_danceability from genre_table group by genres order by total_danceability desc limit 10""")
 
@@ -37,7 +42,7 @@ def top_genres():
 @app.route("/energy_vs_danceability", methods=['GET', 'POST'])
 @cross_origin()
 def energy_danceability():
-    con = psycopg2.connect("host='localhost' dbname='project2' user='postgres' password='postgres'")
+    con = psycopg2.connect("postgresql://postgres:postgres@localhost:5433/project02")
     cur = con.cursor()
     cur.execute("""select energy, danceability from data_table where energy between 0.05 and 0.07 order by energy""")
 
@@ -49,7 +54,7 @@ def energy_danceability():
 @app.route("/popularity_vs_danceability", methods=['GET', 'POST'])
 @cross_origin()
 def popularity_danceability():
-    con = psycopg2.connect("host='localhost' dbname='project2' user='postgres' password='postgres'")
+    con = psycopg2.connect("postgresql://postgres:postgres@localhost:5433/project02")
     cur = con.cursor()
     cur.execute("""select popularity, avg(danceability) as danceability from data_table group by popularity order by popularity""")
 
@@ -61,7 +66,7 @@ def popularity_danceability():
 @app.route("/edm", methods=['GET', 'POST'])
 @cross_origin()
 def edm():
-    con = psycopg2.connect("host='localhost' dbname='project2' user='postgres' password='postgres'")
+    con = psycopg2.connect("postgresql://postgres:postgres@localhost:5433/project02")
     cur = con.cursor()
     cur.execute("""select genres, acousticness, energy, instrumentalness, speechiness, danceability from genre_table where genres = 'edm'""")
 
@@ -73,7 +78,7 @@ def edm():
 @app.route("/hiphop", methods=['GET', 'POST'])
 @cross_origin()
 def hiphop():
-    con = psycopg2.connect("host='localhost' dbname='project2' user='postgres' password='postgres'")
+    con = psycopg2.connect("postgresql://postgres:postgres@localhost:5433/project02")
     cur = con.cursor()
     cur.execute("""select genres, acousticness, energy, instrumentalness, speechiness, danceability from genre_table where genres = 'hip hop'""")
 
@@ -85,7 +90,7 @@ def hiphop():
 @app.route("/rock", methods=['GET', 'POST'])
 @cross_origin()
 def rock():
-    con = psycopg2.connect("host='localhost' dbname='project2' user='postgres' password='postgres'")
+    con = psycopg2.connect("postgresql://postgres:postgres@localhost:5433/project02")
     cur = con.cursor()
     cur.execute("""select genres, acousticness, energy, instrumentalness, speechiness, danceability from genre_table where genres = 'rock'""")
 
